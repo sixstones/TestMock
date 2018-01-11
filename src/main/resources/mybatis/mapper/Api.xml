@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sixstones.testmock.dao.ApiDao">
+
+	<insert id="add" parameterType="ApiEntity" useGeneratedKeys="true" keyProperty="apiId">
+		INSERT INTO `t_api`
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="apiName != null and apiName != ''">
+				`apiName`,
+			</if>
+			<if test="method != null and method != ''">
+				`method`,
+			</if>
+			<if test="paramType != null and paramType != ''">
+				`paramType`,
+			</if>
+			<if test="desc != null and desc != ''">
+				`desc`,
+			</if>
+			createtime,
+			updatetime
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+			<if test="apiName != null and apiName != ''">
+				#{apiName,jdbcType=VARCHAR},
+			</if>
+			<if test="method != null and method != ''">
+				#{method,jdbcType=VARCHAR},
+			</if>
+			<if test="paramType != null and paramType != ''">
+				#{paramType,jdbcType=INTEGER},
+			</if>
+			<if test="desc != null and desc != ''">
+				#{desc,jdbcType=VARCHAR},
+			</if>
+			NOW(),
+			NOW()
+		</trim>
+
+	</insert>
+
+	<update id="update" parameterType="ApiEntity">
+	UPDATE `t_api`
+		<set>
+			<if test="apiName != null and apiName != ''">
+				`apiName` = #{apiName,jdbcType=VARCHAR},
+			</if>
+			<if test="method != null and method != ''">
+				`method` = #{method,jdbcType=VARCHAR},
+			</if>
+			<if test="paramType != null and paramType != ''">
+				`paramType` = #{paramType,jdbcType=INTEGER},
+			</if>
+			<if test="desc != null and desc != ''">
+				`desc` = #{desc,jdbcType=VARCHAR},
+			</if>
+			`updatetime` = NOW()
+		</set>
+		where apiId = #{apiId,jdbcType=INTEGER}
+	
+	</update>
+
+	<delete id="delete">
+		delete from `t_student` where apiId=#{pk,jdbcType=INTEGER}
+	</delete>
+</mapper>
