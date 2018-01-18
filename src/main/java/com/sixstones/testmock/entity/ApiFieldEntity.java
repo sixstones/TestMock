@@ -1,28 +1,31 @@
 package com.sixstones.testmock.entity;
 
 /**
- * �ӿ��ֶ�
+ * 接口字段实体类
  * @author Administrator
  *
  */
 public class ApiFieldEntity extends BaseEntity{
 
-	//�ֶ�ID
+	//字段ID
 	private int fieldId;
 	
-	//�����ӿ�ID
+	//接口ID
 	private int apiId;
 	
-	//��Σ�����
+	//父字段ID
+	private int pFieldId;
+	
+	//1：入参；2出参
 	private int inOrOut;
 	
-	//�ֶ�����
+	//字段名称
 	private String name;
 	
-	//�ֶ�����
+	//字段类型
 	private String type;
 	
-	//�ֶ�����
+	//字段描述
 	private String desc;
 
 	public int getFieldId() {
@@ -31,6 +34,14 @@ public class ApiFieldEntity extends BaseEntity{
 
 	public void setFieldId(int fieldId) {
 		this.fieldId = fieldId;
+	}
+
+	public int getpFieldId() {
+		return pFieldId;
+	}
+
+	public void setpFieldId(int pFieldId) {
+		this.pFieldId = pFieldId;
 	}
 
 	public int getApiId() {

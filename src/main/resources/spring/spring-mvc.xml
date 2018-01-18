@@ -20,7 +20,7 @@
 	<!-- 静态资源servlet配置 -->
 
 
-	<context:component-scan base-package="com.sixstones.SchoolSystem.web" />
+	<context:component-scan base-package="com.sixstones.testmock.web" />
 	
 	<!-- <bean id="viewResolver" class="org.springframework.web.servlet.view.UrlBasedViewResolver"> 
 		<property name="viewClass" value="org.springframework.web.servlet.view.tiles2.TilesView" 

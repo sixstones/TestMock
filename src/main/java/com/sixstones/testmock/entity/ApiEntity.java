@@ -1,28 +1,30 @@
 package com.sixstones.testmock.entity;
 
 /**
- * 接口定义实体
+ * 锟接口讹拷锟斤拷实锟斤拷
  * @author Administrator
  *
  */
 public class ApiEntity extends BaseEntity {
 
-	//接口ID
+	//锟接匡拷ID
 	private int apiId;
 	
-	//接口名称
+	//锟接匡拷锟斤拷锟斤拷
 	private String apiName;
 	
-	//接口方法
+	private String apiCode;
+	
+	//锟接口凤拷锟斤拷
 	private String method;
 	
-	//接口地址
+	//锟接口碉拷址
 	private String url;
 	
-	//接口描述
+	//锟接匡拷锟斤拷锟斤拷
 	private String desc;
 	
-	//参数类型：JSON，XML
+	//锟斤拷锟斤拷锟斤拷锟酵ｏ拷JSON锟斤拷XML
 	private int paramType;
 
 	public int getApiId() {
@@ -39,6 +41,16 @@ public class ApiEntity extends BaseEntity {
 
 	public void setApiName(String apiName) {
 		this.apiName = apiName;
+	}
+	
+	
+
+	public String getApiCode() {
+		return apiCode;
+	}
+
+	public void setApiCode(String apiCode) {
+		this.apiCode = apiCode;
 	}
 
 	public String getMethod() {

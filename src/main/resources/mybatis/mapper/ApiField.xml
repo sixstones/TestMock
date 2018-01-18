@@ -10,6 +10,9 @@
 			<if test="apiId != null and apiId != ''">
 				`apiId`,
 			</if>
+			<if test="pFieldId != null and pFieldId != ''">
+				`pFieldId`,
+			</if>
 			<if test="inOrOut != null and inOrOut != ''">
 				`inOrOut`,
 			</if>
@@ -28,6 +31,9 @@
 		<trim prefix="values (" suffix=")" suffixOverrides=",">
 			<if test="apiId != null and apiId != ''">
 				#{apiId,jdbcType=INTEGER},
+			</if>
+			<if test="pFieldId != null and pFieldId != ''">
+				#{pFieldId,jdbcType=INTEGER},
 			</if>
 			<if test="inOrOut != null and inOrOut != ''">
 				#{inOrOut,jdbcType=INTEGER},
@@ -52,6 +58,9 @@
 		<set>
 			<if test="apiId != null and apiId != ''">
 				`apiId` = #{apiId,jdbcType=INTEGER},
+			</if>
+			<if test="pFieldId != null and pFieldId != ''">
+				`pFieldId` = #{pFieldId,jdbcType=INTEGER},
 			</if>
 			<if test="inOrOut != null and inOrOut != ''">
 				`inOrOut` = #{inOrOut,jdbcType=INTEGER},

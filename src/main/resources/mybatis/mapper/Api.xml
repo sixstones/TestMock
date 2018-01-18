@@ -10,6 +10,9 @@
 			<if test="apiName != null and apiName != ''">
 				`apiName`,
 			</if>
+			<if test="apiCode != null and apiCode != ''">
+				`apiCode`,
+			</if>
 			<if test="method != null and method != ''">
 				`method`,
 			</if>
@@ -25,6 +28,9 @@
 		<trim prefix="values (" suffix=")" suffixOverrides=",">
 			<if test="apiName != null and apiName != ''">
 				#{apiName,jdbcType=VARCHAR},
+			</if>
+			<if test="apiCode != null and apiCode != ''">
+				#{apiCode,jdbcType=VARCHAR},
 			</if>
 			<if test="method != null and method != ''">
 				#{method,jdbcType=VARCHAR},
@@ -46,6 +52,9 @@
 		<set>
 			<if test="apiName != null and apiName != ''">
 				`apiName` = #{apiName,jdbcType=VARCHAR},
+			</if>
+			<if test="apiCode != null and apiCode != ''">
+				`apiCode` = #{apiCode,jdbcType=VARCHAR},
 			</if>
 			<if test="method != null and method != ''">
 				`method` = #{method,jdbcType=VARCHAR},

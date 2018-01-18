@@ -27,7 +27,7 @@
 	</bean>
 
 	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
-		<property name="basePackage" value="com.sixstones.SchoolSystem.dao" />
+		<property name="basePackage" value="com.sixstones.testmock.dao" />
 		<property name="sqlSessionFactoryBeanName" value="sqlSessionFactoty"></property>
 	</bean>
 
