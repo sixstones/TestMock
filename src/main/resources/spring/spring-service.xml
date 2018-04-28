@@ -11,6 +11,8 @@
                         http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd
                         http://www.springframework.org/schema/tx
                         http://www.springframework.org/schema/tx/spring-tx-4.0.xsd ">
-	<context:component-scan base-package="com.sixstones.testmock.service" />
+<!-- 	<context:component-scan base-package="com.sixstones.testmock.service" /> -->
+	
+<!-- 	<bean id="redisServiceImpl" class="com.sixstones.testmock.service.impl.RedisServiceImpl"></bean> -->
 
 </beans>

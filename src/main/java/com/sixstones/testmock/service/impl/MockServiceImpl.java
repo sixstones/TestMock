@@ -11,7 +11,6 @@ public class MockServiceImpl implements MockService {
 
 	@Override
 	public boolean checkRequest(Map requestParam) {
-		// TODO Auto-generated method stub
 		return false;
 	}
 

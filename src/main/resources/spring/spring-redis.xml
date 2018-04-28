@@ -4,8 +4,12 @@
 	xmlns:context="http://www.springframework.org/schema/context"
 	xmlns:mvc="http://www.springframework.org/schema/mvc" xmlns:tx="http://www.springframework.org/schema/tx"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans    
-                        http://www.springframework.org/schema/beans/spring-beans-3.1.xsd">
+                        http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
+                        http://www.springframework.org/schema/context    
+                        http://www.springframework.org/schema/context/spring-context-3.1.xsd">
                         
+	<context:property-placeholder location="classpath:/config/*.properties" />
+
 	<bean id="jedisPoolConfig" class="redis.clients.jedis.JedisPoolConfig">
 		<property name="maxIdle" value="${redis.maxIdle}" />
 		<property name="maxTotal" value="${redis.maxTotal}" />
@@ -21,8 +25,16 @@
 		<property name="poolConfig" ref="jedisPoolConfig" />
 		<property name="usePool" value="true" />
 	</bean>
+	
+	<!-- 防止键值乱码，执行字符串序列化类型 -->
+	<bean id="stringRedisSerializer" class="org.springframework.data.redis.serializer.StringRedisSerializer">
+	</bean>
 
 	<bean id="redisTemplate" class="org.springframework.data.redis.core.RedisTemplate">
 		<property name="connectionFactory" ref="jedisConnectionFactory" />
+		<!-- 新增 -->
+        <property name="keySerializer" ref="stringRedisSerializer" />
+        <property name="valueSerializer" ref="stringRedisSerializer" />
+        <property name="hashKeySerializer" ref="stringRedisSerializer" />
 	</bean>
 </beans>

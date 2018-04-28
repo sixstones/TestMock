@@ -24,4 +24,6 @@ public interface ApiService {
 	 * @param inOrOut
 	 */
 	void saveApiField(int apiId ,FieldVo field,int inOrOut,int pId);
+	
+	ApiFieldEntity queryApiByUrl(String url);
 }

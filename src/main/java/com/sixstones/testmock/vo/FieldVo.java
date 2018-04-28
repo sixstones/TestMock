@@ -7,6 +7,7 @@ import com.sixstones.testmock.enums.FieldTypeEnum;
 public class FieldVo {
 
 	private String key;
+	private String val;
 	private FieldTypeEnum type;
 	private List<FieldVo> children;
 
@@ -16,6 +17,14 @@ public class FieldVo {
 
 	public void setKey(String key) {
 		this.key = key;
+	}
+	
+	public String getVal() {
+		return val;
+	}
+
+	public void setVal(String val) {
+		this.val = val;
 	}
 
 	public FieldTypeEnum getType() {
@@ -39,6 +48,7 @@ public class FieldVo {
 		StringBuilder sb = new StringBuilder();
 		sb.append("{");
 		sb.append("\"key\":" + (key == null ? "null" : key) + ",");
+		sb.append("\"val\":" + (val == null ? "null" : val) + ",");
 		sb.append("\"type\":" + (type == null ? "null" : type.getType()) + ",");
 		sb.append("\"children\":" + (children == null ? "null" : children));
 		sb.append("}");

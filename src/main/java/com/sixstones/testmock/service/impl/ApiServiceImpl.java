@@ -6,7 +6,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.mysql.jdbc.Constants;
 import com.mysql.jdbc.Field;
+import com.sixstones.testmock.constants.RedisKey;
 import com.sixstones.testmock.dao.ApiDao;
 import com.sixstones.testmock.dao.ApiFieldDao;
 import com.sixstones.testmock.dao.FieldRelationDao;
@@ -27,6 +29,9 @@ public class ApiServiceImpl implements ApiService {
 	
 	@Autowired
 	private FieldRelationDao relationDao;
+	
+	@Autowired
+	private RedisServiceImpl redisService;
 
 	@Override
 	public Map dealRelation(ApiFieldEntity apiField,Map request,Map response) {
@@ -82,6 +87,11 @@ public class ApiServiceImpl implements ApiService {
 			fieldEntity.setpFieldId(pid);
 			fieldDao.add(fieldEntity);
 		}
+	}
+
+	@Override
+	public ApiFieldEntity queryApiByUrl(String url) {
+		return (ApiFieldEntity) redisService.get(String.format(RedisKey.APIURL, url));
 	}
 	
 }

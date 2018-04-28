@@ -11,9 +11,9 @@
                         http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd
                         http://www.springframework.org/schema/tx
                         http://www.springframework.org/schema/tx/spring-tx-4.0.xsd ">
-
+<!-- 
 	<context:property-placeholder location="classpath:/config/*.properties" />
-
+ 
 	<bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
 		<property name="driverClass" value="${jdbc.driver}" />
 		<property name="jdbcUrl" value="${jdbc.url}" />
@@ -37,4 +37,5 @@
 	</bean>
 
 	<tx:annotation-driven transaction-manager="transactionManager" />
+ -->
 </beans>

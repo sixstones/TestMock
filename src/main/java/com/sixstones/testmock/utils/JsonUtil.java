@@ -17,19 +17,54 @@ public class JsonUtil {
 
 	private static ObjectMapper mapper = new ObjectMapper();
 
+	/**
+	 * json序列化
+	 * @param obj
+	 * @return
+	 * @throws JsonProcessingException
+	 */
 	public static String toString(Object obj) throws JsonProcessingException {
 		return mapper.writeValueAsString(obj);
 	}
 
+	
+	/**
+	 * json->map
+	 * @param json
+	 * @return
+	 * @throws JsonParseException
+	 * @throws JsonMappingException
+	 * @throws IOException
+	 */
 	public static Map<String, Object> toMap(String json) throws JsonParseException, JsonMappingException, IOException {
 		return mapper.readValue(json, Map.class);
 	}
 
+	/**
+	 * jsonStr -> Object
+	 * @param json
+	 * @param clazz
+	 * @return
+	 * @throws JsonParseException
+	 * @throws JsonMappingException
+	 * @throws IOException
+	 */
 	public static Object toObject(String json, Class clazz)
 			throws JsonParseException, JsonMappingException, IOException {
 		return mapper.readValue(json, clazz);
 	}
+	
+	public static Object toObject(String json)
+			throws JsonParseException, JsonMappingException, IOException {
+		return toObject(json, Object.class);
+	}
 
+	
+	/**
+	 * 递归解析Object对象，生产字段实体FiledVo{@link com.sixstones.testmock.vo.FieldVo}对象
+	 * @param obj
+	 * @param upperField
+	 */
 	public static void parse(Object obj, FieldVo upperField) {
 		// 1、非数组格式
 		// 2.遍历所有键值
@@ -44,6 +79,7 @@ public class JsonUtil {
 				String key = entry.getKey();
 				Object val = entry.getValue();
 				temp.setKey(key);
+				temp.setVal(val.toString());
 				parse(val, temp);
 				if (null == upperField.getChildren()) {
 					List<FieldVo> children = new ArrayList<FieldVo>();
